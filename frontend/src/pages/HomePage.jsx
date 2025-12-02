@@ -42,9 +42,22 @@ const HomePage = () => {
   };
 
   return (
-    <Grid container spacing={4}>
+    <Grid
+      container
+      spacing={4}
+      sx={{
+        alignItems: 'center',
+        background:
+          'linear-gradient(135deg, rgba(46,125,50,0.1) 0%, rgba(255,152,0,0.08) 50%, rgba(255,255,255,1) 100%)',
+        borderRadius: 3,
+        p: { xs: 2, md: 4 },
+      }}
+    >
       <Grid item xs={12} md={6}>
-        <Typography variant="h3" gutterBottom>
+        <Typography variant="overline" color="primary">
+          Indian diet & workout planner
+        </Typography>
+        <Typography variant="h3" gutterBottom sx={{ fontWeight: 700 }}>
           samzyh diets
         </Typography>
         <Typography variant="h6" color="text.secondary" gutterBottom>
@@ -56,7 +69,15 @@ const HomePage = () => {
         </Typography>
       </Grid>
       <Grid item xs={12} md={6}>
-        <Paper sx={{ p: 3 }}>
+        <Paper
+          elevation={4}
+          sx={{
+            p: 3,
+            borderRadius: 3,
+            backdropFilter: 'blur(4px)',
+            backgroundColor: 'rgba(255,255,255,0.9)',
+          }}
+        >
           <Typography variant="h6" gutterBottom>
             Get your plan
           </Typography>

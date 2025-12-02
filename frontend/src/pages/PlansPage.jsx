@@ -4,6 +4,7 @@ import {
   Card,
   CardActionArea,
   CardContent,
+  CardMedia,
   Chip,
   Grid,
   MenuItem,
@@ -75,12 +76,33 @@ const PlansPage = () => {
           <MenuItem value="medium">Medium</MenuItem>
           <MenuItem value="high">High</MenuItem>
         </TextField>
+        <TextField
+          name="withSupplements"
+          label="Supplements"
+          select
+          size="small"
+          value={filters.withSupplements || ''}
+          onChange={handleChange}
+          sx={{ minWidth: 200 }}
+        >
+          <MenuItem value="">All</MenuItem>
+          <MenuItem value="true">With Supplements</MenuItem>
+          <MenuItem value="false">No Supplements</MenuItem>
+        </TextField>
       </Box>
       <Grid container spacing={2}>
         {plans.map((plan) => (
           <Grid key={plan._id} item xs={12} md={4}>
-            <Card>
+            <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
               <CardActionArea onClick={() => navigate(`/plans/${plan.slug}`)}>
+                {plan.imageUrl && (
+                  <CardMedia
+                    component="img"
+                    height="160"
+                    image={plan.imageUrl}
+                    alt={plan.title}
+                  />
+                )}
                 <CardContent>
                   <Typography variant="h6">{plan.title}</Typography>
                   <Box sx={{ display: 'flex', gap: 1, mt: 1, flexWrap: 'wrap' }}>

@@ -67,6 +67,11 @@ const PlanDetailPage = () => {
               <Typography variant="body2">
                 <strong>{meal.time}</strong> – {meal.name}: {meal.items?.join(', ')}
               </Typography>
+              {meal.supplements && meal.supplements.length > 0 && (
+                <Typography variant="body2" color="primary" sx={{ ml: 1 }}>
+                  Supplements: {meal.supplements.join(', ')}
+                </Typography>
+              )}
             </Box>
           ))}
         </Box>
